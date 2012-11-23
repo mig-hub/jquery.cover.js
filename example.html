@@ -4,67 +4,8 @@
     <meta charset="utf-8">
     <title>Cover</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="plugin.cover.raw.js"></script>
     <script type="text/javascript" charset="utf-8">
-      ;(function($) {
-        $.do_when_image_loaded = function(src, callback) {
-        var img = new Image();
-        img.src = src;
-        var loop = setInterval(function() {
-          if (img.complete) {
-            clearInterval(loop);
-            callback();
-          }
-        }, 200);
-        };
-        $.fn.cover = function(options) {
-          var defaults = {
-            binding: 'click.cover',
-            div_id: 'cover_plugin_bloc',
-            loader: 'loader.gif',
-            speed: 100
-          };
-          var settings = $.extend({}, defaults, options);
-          return this.each(function() {
-            var $this = $(this);
-            if (!$this.is('img')) throw new Error("Cover was used with a node which is not an image.")
-            $this.bind(settings.binding, function() {
-              var href = $this.data().cover || $this.attr('src');
-              var cover = $("<div id='"+settings.div_id+"'></div>");
-              cover.click(function() {
-                // process again because it may have changed by scroll or whatever
-                cover.stop(true,true).animate({
-                  left: $this.offset().left-$(window).scrollLeft()+'px',
-                  top: $this.offset().top-$(window).scrollTop()+'px',
-                  width: $this.width()+'px',
-                  height: $this.height()+'px'
-                }, settings.speed, function() {cover.remove();});
-              });
-              cover.css({
-                position: 'fixed',
-                backgroundRepeat: "no-repeat", backgroundPosition: "center center",
-                left: $this.offset().left-$(window).scrollLeft()+'px',
-                top: $this.offset().top-$(window).scrollTop()+'px',
-                width: $this.width()+'px',
-                height: $this.height()+'px'
-              });
-              var timeout = setTimeout(function() {
-                // Should not show briefly when image is loaded
-                cover.css({
-                  backgroundImage: "url("+settings.loader+")",
-                });
-              }, 500);
-              $('body').append(cover);
-              $.do_when_image_loaded(href, function() {
-                clearTimeout(timeout);
-                cover
-                .css({backgroundImage: "url("+href+")", backgroundSize: "cover"})
-                .stop(true,true)
-                .animate({left: '0px', top: '0px', width: '100%', height: '100%'}, settings.speed);
-              });
-            });
-          });
-        };
-      })(jQuery);
 
       $(function() {
         $('img').cover();
