@@ -3,17 +3,80 @@
   <head>
     <meta charset="utf-8">
     <title>Cover</title>
+    <style type="text/css" media="all">
+      /*
+      base03:    #002b36;
+      base02:    #073642;
+      base01:    #586e75;
+      base00:    #657b83;
+      base0:     #839496;
+      base1:     #93a1a1;
+      base2:     #eee8d5;
+      base3:     #fdf6e3;
+      yellow:    #b58900;
+      orange:    #cb4b16;
+      red:       #dc322f;
+      magenta:   #d33682;
+      violet:    #6c71c4;
+      blue:      #268bd2;
+      cyan:      #2aa198;
+      green:     #859900;
+      */
+      img { border: 0px; }
+      html, body {
+        background-color: #eee8d5;
+        color: #586e75;
+        margin: 0px; padding: 0px;
+        font-family: verdana, sans-serif;
+        font-size: 13px; line-height: 16px;
+      }
+      #trunk {
+        width: 560px;
+        margin: 0px auto;
+        padding: 10px;
+        background-color: #fdf6e3;
+      }
+      h1, h2 {
+        margin: 20px 10px;
+      }
+      p {
+        margin: 20px 10px 20px 120px;
+      }
+      .demo-bloc {
+        padding: 5px;
+        overflow: hidden;
+      }
+      .demo-bloc img {
+        width: 100px;
+        margin: 5px;
+        float: left;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="trunk">
+      <h1>COVER.js</h1>
+      <h2>Demo</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class='demo-bloc'>
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+        <img src='http://www.freeimageslive.com/galleries/space/nebula/hst_carina_ngc3372_0006_small.jpg' data-cover="http://www.freeimageslive.com/galleries/space/nebula/pics/hst_carina_ngc3372_0006.jpg" alt="picture" />
+      </div>
+    </div>
+
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="plugin.cover.raw.js"></script>
     <script type="text/javascript" charset="utf-8">
-
       $(function() {
         $('img').cover();
       });
-      
     </script>
-  </head>
-  <body>
-    <img src='http://www.campbellhay.com/stash/FeatureBoxMedia/48/image.col1.jpg' data-cover="http://www.campbellhay.com/stash/PortfolioMedia/16/image.jpg" alt="picture" />
   </body>
 </html>
