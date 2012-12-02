@@ -12,8 +12,9 @@
   $.fn.cover = function(options) {
     var defaults = {
       binding: 'click.cover',
-      div_id: 'cover_plugin_bloc',
+      divID: 'cover_plugin_bloc',
       loader: 'loader.gif',
+      backgroundColor: 'transparent',
       speed: 200
     };
     var settings = $.extend({}, defaults, options);
@@ -22,7 +23,7 @@
       if (!$this.is('img')) throw new Error("Cover was used with a node which is not an image.")
       $this.bind(settings.binding, function() {
         var href = $this.data().cover || $this.attr('src');
-        var cover = $("<div id='"+settings.div_id+"'></div>");
+        var cover = $("<div id='"+settings.divID+"'></div>");
         cover.click(function() {
           // process again because it may have changed by scroll or whatever
           cover.stop(true,true).animate({
@@ -34,7 +35,8 @@
         });
         cover.css({
           position: 'fixed',
-          backgroundRepeat: "no-repeat", backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
           left: $this.offset().left-$(window).scrollLeft()+'px',
           top: $this.offset().top-$(window).scrollTop()+'px',
           width: $this.width()+'px',
@@ -44,6 +46,7 @@
           // Should not show briefly when image is loaded
           cover.css({
             backgroundImage: "url("+settings.loader+")",
+            backgroundColor: settings.backgroundColor
           });
         }, 250);
         $('body').append(cover);
