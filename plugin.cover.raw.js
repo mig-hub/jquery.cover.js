@@ -12,11 +12,11 @@
   $.fn.cover = function(options) {
     var defaults = {
       binding: 'click.cover',
-      divID: 'cover_plugin_bloc',
+      divID: 'cover-plugin-bloc',
       loader: 'loader.gif',
       backgroundColor: 'transparent',
       preload: true,
-      speed: 200
+      duration: 200
     };
     var settings = $.extend({}, defaults, options);
     return this.each(function() {
@@ -33,7 +33,7 @@
             top: $this.offset().top-$(window).scrollTop()+'px',
             width: $this.width()+'px',
             height: $this.height()+'px'
-          }, settings.speed, function() {cover.remove();});
+          }, settings.duration, function() {cover.remove();});
         });
         cover.css({
           position: 'fixed',
