@@ -15,11 +15,13 @@
       divID: 'cover_plugin_bloc',
       loader: 'loader.gif',
       backgroundColor: 'transparent',
+      preload: true,
       speed: 200
     };
     var settings = $.extend({}, defaults, options);
     return this.each(function() {
       var $this = $(this);
+      if (settings.preload) new Image().src = $this.data().cover || $this.attr('src');
       if (!$this.is('img')) throw new Error("Cover was used with a node which is not an image.")
       $this.bind(settings.binding, function() {
         var href = $this.data().cover || $this.attr('src');
